@@ -35,5 +35,5 @@ $pk = $db->lastInsertId();
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
-header('HTTP/1.1 303 See Other');
-header('Location: ../records/?id=' . $pk);
+header('Content-Type: application/json');
+echo $json;

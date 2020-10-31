@@ -66,7 +66,21 @@ var app = new Vue({
 
     newMemberData(){
       return {
-        firstName: ""
+        firstName: "",
+        lastName: "",
+        positionID: "",
+        gender: "",
+        address: "",
+        dateOfBirth: "",
+        workPhone: "",
+        mobilePhone: "",
+        startDate: "",
+        radioNumber: "",
+        stationNumber: "",
+        email: "",
+        certificationID: "",
+        testDate: "",
+
       }
     },
 
@@ -80,6 +94,12 @@ var app = new Vue({
         }
       })
 
+      .then( response => response.json() )
+        .then( json => {
+          console.log ("Returned from post:", json);
+          this.memberList.push(json[json.length - 1]);
+          this.newMember = this.newMemberData();
+        });
       console.log("creating (POSTing)...!");
       console.log(this.newMember);
     },

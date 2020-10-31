@@ -9,6 +9,12 @@ $db = DbConnection::getConnection();
 $sql = 'SELECT * FROM Person';
 $vars = [];
 
+if (isset($_GET['personID'])) {
+  // This is an example of a parameterized query
+  $sql = 'SELECT * FROM Person WHERE personID = ?';
+  $vars = [ $_GET['personID'] ];
+}
+
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 

@@ -202,8 +202,20 @@
               <div class="form-group">
                 <!-- Add label -->
                 <label for="gender">Gender</label>
+
                 <!-- Add id -->
-                <input type="text" v-model="newMember.gender" class="form-control" placeholder="" id="gender">
+                <select id="gender" v-model="newMember.gender">
+                  <option>
+                    Male
+                  </option>
+                  <option>
+                    Female
+                  </option>
+                  <option>
+                     Other
+                  </option>
+                </select>
+
               </div>
               <div class="form-group">
                 <!-- Add label -->
@@ -215,25 +227,25 @@
                 <!-- Add label -->
                 <label for="dateOfBirth">Date of Birth</label>
                 <!-- Add id -->
-                <input type="text" v-model="newMember.dateOfBirth" class="form-control"  placeholder="" id="dateOfBirth">
+                <input type="date" v-model="newMember.dateOfBirth" class="form-control"  placeholder="" id="dateOfBirth">
               </div>
               <div class="form-group">
                 <!-- Add label -->
                 <label for="workPhone">Work Phone</label>
                 <!-- Add id -->
-                <input type="text"  v-model="newMember.workPhone" class="form-control"  placeholder="" id="workPhone">
+                <input type="number"  v-model="newMember.workPhone" class="form-control"  placeholder="" id="workPhone">
               </div>
               <div class="form-group">
                 <!-- Add label -->
                 <label for="mobilePhone">Mobile Phone</label>
                 <!-- Add id -->
-                <input type="text" v-model="newMember.mobilePhone" class="form-control"  placeholder="" id="mobilePhone">
+                <input type="number" v-model="newMember.mobilePhone" class="form-control"  placeholder="" id="mobilePhone">
               </div>
               <div class="form-group">
                 <!-- Add label -->
                 <label for="startDate">Start Date</label>
                 <!-- Add id -->
-                <input type="text" v-model="newMember.startDate" class="form-control"  placeholder="" id="startDate">
+                <input type="date" v-model="newMember.startDate" class="form-control"  placeholder="" id="startDate">
               </div>
               <div class="form-group">
                 <!-- Add label -->
@@ -251,7 +263,7 @@
                 <!-- Add label -->
                 <label for="email">Email</label>
                 <!-- Add id -->
-                <input type="text" v-model="newMember.email" class="form-control"  placeholder="" id="email">
+                <input type="email" v-model="newMember.email" class="form-control"  placeholder="" id="email">
               </div>
               <div class="form-group">
                 <!-- Add label -->
@@ -267,12 +279,12 @@
                 <!-- Add label -->
                 <label for="testDate">Date Certified</label>
                 <!-- Add id -->
-                <input type="text" v-model="newMember.testDate" class="form-control"  placeholder="" id="testDate">
+                <input type="date" v-model="newMember.testDate" class="form-control"  placeholder="" id="testDate">
               </div>
             </div>
             <div class="modal-footer">
               <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-              <input type="submit" class="btn btn-success" value="Add">
+              <input id="btnSave2" type="submit" class="btn btn-success" value="Add">
             </div>
           </form>
         </div>
@@ -282,7 +294,7 @@
       <div id="editEmployeeModal" class="modal fade">
       	<div class="modal-dialog">
       		<div class="modal-content">
-      			<form v-on:submit = "editMember">
+      			<form v-on:submit.prevent = "editMember">
       				<div class="modal-header">
       					<h4 class="modal-title">Edit Member</h4>
       					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -307,7 +319,7 @@
       				</div>
       				<div class="modal-footer">
       					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-      					<input type="submit" class="btn btn-info" value="Save">
+      					<input id="btnSave" type="submit" class="btn btn-info" value="Save">
       				</div>
       			</form>
       		</div>
@@ -317,10 +329,10 @@
       <div id="deleteEmployeeModal" class="modal fade">
       	<div class="modal-dialog">
       		<div class="modal-content">
-      			<form v-on:submit = "deleteMember">
+      			<form v-on:submit.prevent = "deleteMember">
       				<div class="modal-header">
       					<h4 class="modal-title">Delete Employee</h4>
-      					<button type="submit" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      					<button type="submit" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
       				</div>
       				<div class="modal-body">
       					<p>Are you sure you want to delete these Records?</p>
@@ -328,7 +340,7 @@
       				</div>
       				<div class="modal-footer">
       					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-      					<input type="submit" class="btn btn-danger" value="Delete">
+      					<input id="btnSave3" type="submit" class="btn btn-danger" value="Delete">
       				</div>
       			</form>
       		</div>
@@ -419,6 +431,20 @@
       		}
       	});
       });
+
+      // source:https://stackoverflow.com/questions/33477930/close-bootstrap-modal-on-form-submit
+      $('#btnSave').click(function() {
+        $('#editEmployeeModal').modal('hide');
+        });
+
+      $('#btnSave2').click(function() {
+        $('#addEmployeeModal').modal('hide');
+        });
+
+      $('#btnSave3').click(function() {
+        $('#deleteEmployeeModal').modal('hide');
+        });
+
     </script>
   </body>
 </html>

@@ -43,3 +43,5 @@ $stmt3->execute([
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
+header('Content-Type: application/json');
+echo $json;

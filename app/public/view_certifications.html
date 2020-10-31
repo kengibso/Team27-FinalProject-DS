@@ -162,7 +162,7 @@
                       <!-- Add label -->
                       <label for="defaultExpiration">Certification Expiration</label>
                       <!-- Add id -->
-                      <input type="text" v-model="newCertification.defaultExpiration" class="form-control"  placeholder="" id="defaultExpiration">
+                      <input type="number" v-model="newCertification.defaultExpiration" class="form-control"  placeholder="" id="defaultExpiration">
                     </div>
 
                   </div>
@@ -194,7 +194,7 @@
                     </div>
                     <div class="form-group">
                       <label>Certification Expiration</label>
-                      <input type="text" class="form-control" v-model.lazy = "activeCertification.defaultExpiration">
+                      <input type="number" class="form-control" v-model.lazy = "activeCertification.defaultExpiration">
                     </div>
                   </div>
                   <div class="modal-footer">
