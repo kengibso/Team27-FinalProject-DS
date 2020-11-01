@@ -3,6 +3,7 @@ var app = new Vue({
   data:{
     certificationList: [],
     activeCertification: {},
+    positionList: [],
     newCertification:{},
     certificationByPerson: []
   },
@@ -61,7 +62,9 @@ var app = new Vue({
 
     newCertificationData(){
       return {
-        certificationName: ""
+        certificationName: "",
+        certificationAgency:"",
+        defaultExpiration:""
       }
     },
 
@@ -84,16 +87,16 @@ var app = new Vue({
 
 
 
-    // fetchPosition: function(){
-    //   fetch('api/records/view_positions.php')
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     this.positionList = data;
-    //     console.log(data);
-    //
-    //
-    //   });
-    // },
+    fetchPosition: function(){
+      fetch('api/records/view_positions.php')
+      .then(response => response.json())
+      .then(data => {
+        this.positionList = data;
+        console.log(data);
+
+
+      });
+    },
 
 
 
@@ -110,16 +113,16 @@ var app = new Vue({
       console.log(this.activeCertification);
     },
 
-    // fetchMember: function(){
-    //   fetch('api/records/view_certifications.php')
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     this.memberList = data;
-    //     console.log(data);
-    //
-    //
-    //
-    //   });
-    // }
+    fetchMember: function(){
+      fetch('api/records/view_certifications.php')
+      .then(response => response.json())
+      .then(data => {
+        this.certificationList = data;
+        console.log(data);
+
+
+
+      });
+    }
   }
 })

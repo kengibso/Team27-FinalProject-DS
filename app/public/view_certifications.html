@@ -72,10 +72,6 @@
               </div>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
       </nav>
 
@@ -140,7 +136,7 @@
           <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
               <div class="modal-content">
-                 <form method="post" v-on:submit="createCertification">
+                 <form method="post" v-on:submit.prevent="createCertification">
                   <div class="modal-header">
                     <h4 class="modal-title">Add New Certification</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -178,7 +174,7 @@
           <div id="editEmployeeModal" class="modal fade">
             <div class="modal-dialog">
               <div class="modal-content">
-                <form v-on:submit = "editCertification">
+                <form v-on:submit.prevent = "editCertification">
                   <div class="modal-header">
                     <h4 class="modal-title">Edit Certification</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -209,7 +205,7 @@
           <div id="deleteEmployeeModal" class="modal fade">
             <div class="modal-dialog">
               <div class="modal-content">
-                <form v-on:submit = "deleteCertification">
+                <form v-on:submit.prevent = "deleteCertification">
                   <div class="modal-header">
                     <h4 class="modal-title">Delete Certification</h4>
                     <button type="submit" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -291,6 +287,20 @@
           }
         });
       });
+
+      $('#btnSave').click(function() {
+        $('#editEmployeeModal').modal('hide');
+        });
+
+      $('#btnSave2').click(function() {
+        $('#addEmployeeModal').modal('hide');
+        });
+
+      $('#btnSave3').click(function() {
+        $('#deleteEmployeeModal').modal('hide');
+        });
+
+
     </script>
   </body>
 </html>

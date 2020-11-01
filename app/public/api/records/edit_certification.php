@@ -37,5 +37,8 @@ $pk = $db->lastInsertId();
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
-header('Content-Type: application/json');
-echo $json;
+// header('Content-Type: application/json');
+// echo $json;
+
+header('HTTP/1.1 303 See Other');
+header('Location: ../records/view_certifications.php/?certificationID=' . $_POST['certificationID'])
